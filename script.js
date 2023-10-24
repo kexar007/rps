@@ -6,16 +6,23 @@ const rock = document.querySelector("#rock");
 const paper = document.querySelector("#paper");
 const scissors = document.querySelector("#scissors");
 let win= 0, loses=0,games=0;
+const wincount = document.querySelector('#winscount');
+const losecount =document.querySelector('#losecount');
+const gamecount= document.querySelector('#gamescount');
 
 
 
 function scorekeeper(winorlose) {
-    if(winorlose==win){
+    if(winorlose=="win"){
         games+=1;
         win+=1;
-    }else if(winorlose==lose){
+        gamecount.innerText=games;
+        wincount.innerText=win;
+    }else if(winorlose=="lose"){
         games+=1;
         loses+=1;
+        gamecount.innerText=games;
+        losecount.innerText=loses;
 
     }
 };
@@ -53,34 +60,33 @@ function match(player){
 
     if ((a===4)&&(b===5)) {
         result1.innerHTML="PC chose paper, you lose."; 
-        scorekeeper(lose);
+        scorekeeper("lose");
     };
 
     if ((a===4)&&(b===8)) {
         result1.innerHTML="PC chose Scissors, you win."; 
-        scorekeeper(win);
-    };
+        scorekeeper("win");
 
-
+    }
     if ((a===5)&&(b===4)) {
         result1.innerHTML="PC chose rock, you win."; 
-        scorekeeper(win);
+        scorekeeper("win");
     };
 
     if ((a===5)&&(b===8)) {
         result1.innerHTML="PC chose Scissors, you lose."; 
-        scorekeeper(lose);
+        scorekeeper("lose");
     };
 
 
     if ((a===8)&&(b===4)) {
         result1.innerHTML="PC chose rock, you lose."; 
-        scorekeeper(lose);
+        scorekeeper("lose");
     };
 
     if ((a===8)&&(b===5)) {
         result1.innerHTML="PC chose paper, you win."; 
-        scorekeeper(win);
+        scorekeeper("win");
     };
 
 }
